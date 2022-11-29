@@ -137,6 +137,43 @@ fun naziModul() {
     }
 }
 
+fun sumpfModul() {
+if(time == Time.NACHT) {
+    println("*Auf dem Weg zu deiner Mutter kommst du durch ein Sumpf*")
+    println("*Dicke Rauschwaden hängen in der Luft, als du auf dem Holzpfad den Mittwochsfrosch entdeckst*")
+    println("'Hallo mein Kerl, für ein Stück Brot kann ich dir den Weg zur Mutter zeigen'")
+    println("-Entscheide dich, gibst du dem Mittwochsfrosch dein Brot?-")
+
+    var temp = scan()
+    if (temp.equals("ja") && brotCounter >= 1) {
+        println("*Du krammst in deinem Hosenboden, als der Mittwochsfrosch ein rostiges Messer rausholt und dich absticht*")
+        println("'Es ist Mittwoch mein Kerl!'")
+        System.exit(-1);
+    } else if (temp.equals("ja")) {
+        println("*Du krammst in deinem Hosenboden, als der Mittwochsfrosch ein rostiges Messer rausholt und dich absticht*")
+        println("'Es ist Mittwoch mein Kerl! Du hattest ja nichtmal ein Brot dabei Geringverdiener'")
+        System.exit(-1);
+    }
+    if (temp.equals("nein")) {
+        println("*Du traust dem Frosch nicht*")
+        println("'Nein hab ich nicht'")
+        println("*Der Mittwochsfrosch nickt genervt und geht weiter*")
+    }
+}
+    if(time == Time.TAG) {
+        println("*In der Entfernung siehst du die Hütte deiner Mutter*")
+        println("*Während du die Hütte betrittst riechst du den leckeren Geruch von Schlawiners*")
+        if (karma <= 0) {
+            println("*Deine Mutter sieht dich energisch an*")
+            println("'Digga bist du lost du Vogel, du hast zu wenig Karma und musst das Schlawiner als DLC kaufen'")
+        }
+        if (karma >= 1) {
+            println("*Deine Mutter sieht dich freudig*")
+            println("'Du hast genug Karma, um Schlawiners zu essen'")
+        }
+    }
+}
+
 fun hauptstadtText() {
     println("-------------------------------------")
     nameModul()
@@ -149,9 +186,14 @@ fun waldText() {
     naziModul()
 }
 
+fun sumpfText() {
+    println("-------------------------------------")
+    sumpfModul()
+}
+
 fun main(args: Array<String>) {
     hauptstadtText()
     waldText()
-
+    sumpfText()
 }
 
